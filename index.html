@@ -1,0 +1,178 @@
+<html><head><base href="data:">
+  <meta charset="UTF-8">
+  <title>The World Is Mine - Análise</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 3px solid #c41e3a;
+    }
+  
+    nav {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+  
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+  
+    nav a:hover {
+      color: #c41e3a;
+      background-color: #2d2d2d;
+    }
+  
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+  
+    .theme-section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+      border-left: 4px solid #c41e3a;
+    }
+  
+    h1, h2, h3 {
+      color: #c41e3a;
+    }
+  
+    .analysis-img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 2rem auto;
+      display: block;
+      border: 2px solid #c41e3a;
+    }
+  
+    .theme-section:hover {
+      transform: translateX(10px);
+      transition: transform 0.3s ease;
+    }
+  
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #c41e3a;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>The World Is Mine</h1>
+      <h2>Análise Temática</h2>
+    </div>
+  
+    <nav>
+      <a href="#poder">Poder</a>
+      <a href="#sociedade">Sociedade</a>
+      <a href="#violencia">Violência</a>
+      <a href="#natureza-humana">Natureza Humana</a>
+    </nav>
+  
+    <div class="content">
+      <div id="poder" class="theme-section">
+        <h2>O Poder e Suas Manifestações</h2>
+        <p>Em "The World Is Mine", Hideki Arai explora as complexas dinâmicas do poder através da jornada de Mon, um personagem que representa a busca desenfreada pelo controle absoluto. A obra demonstra como o poder pode corromper e transformar indivíduos, levando-os a extremos impensáveis.</p>
+        <img class="analysis-img" alt="painel em preto e branco mostrando Mon em posição dominante, estilo manga seinen realista" src="images.png" width="800" height="500">
+      </div>
+  
+      <div id="sociedade" class="theme-section">
+        <h2>Crítica Social</h2>
+        <p>A obra apresenta uma crítica mordaz à sociedade japonesa contemporânea, explorando temas como desigualdade social, alienação urbana e a pressão do conformismo. Através de suas páginas, Arai expõe as fraturas de uma sociedade aparentemente ordenada.</p>
+        <img class="analysis-img" alt="cena urbana em estilo manga detalhado mostrando contraste social" src="TWIM_v07c77p170-0171.png" width="800" height="500">
+      </div>
+  
+      <div id="violencia" class="theme-section">
+        <h2>A Violência como Linguagem</h2>
+        <p>A violência no manga não é gratuita, mas sim um meio de comunicação que expressa as frustrações e desejos reprimidos dos personagens. Cada ato violento carrega um significado mais profundo sobre a condição humana.</p>
+        <img class="analysis-img" alt="cena de confronto em estilo manga seinen, alto contraste" src="imagees.png" width="800" height="500">
+      </div>
+  
+      <div id="natureza-humana" class="theme-section">
+        <h2>A Natureza Humana</h2>
+        <p>Arai mergulha profundamente na psicologia humana, explorando os limites entre civilização e selvageria, questionando o que nos torna verdadeiramente humanos em situações extremas.</p>
+        <img class="analysis-img" alt="close-up expressivo de personagem em estilo manga seinen detalhado" src="6vpj1c0vpbg71.jpg" width="800" height="500">
+      </div>
+    </div>
+  
+    <button class="scroll-to-top" id="scrollTop">↑</button>
+  
+    <script>
+      // Botão de scroll para o topo
+      const scrollBtn = document.getElementById('scrollTop');
+      
+      window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      };
+  
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+  
+      // Animação suave para links da navegação
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+  
+      // Adiciona efeito de fade in nas seções ao scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateX(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+  
+      document.querySelectorAll('.theme-section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateX(-20px)';
+        section.style.transition = 'all 0.5s ease-in-out';
+        observer.observe(section);
+      });
+    </script>
+  </body>
+  </html>
